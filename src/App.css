@@ -145,6 +145,12 @@
        gap: 1rem;
        width: 35%;
    }
+
+   @media only screen and (max-width: 600px){
+    .login-form {
+        width: 84%;
+    }
+   }
    
    .login-form input {
     height: 45px;
@@ -220,3 +226,15 @@
 
 }
 
+.loading-error {
+    display: block;
+    color: red;
+    opacity: 1;
+    text-align: center;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
