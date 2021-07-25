@@ -17,7 +17,7 @@ function Login() {
             body: JSON.stringify(reqBody)
         };
 
-        fetch('http://localhost:8000/login', requestOptions)
+        fetch('https://aktudata-backend.herokuapp.com/login', requestOptions)
         .then(response => response.json())
         .then(data => {
             console.log(data);
