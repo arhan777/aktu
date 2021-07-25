@@ -11,6 +11,10 @@ function Login() {
             userName: login,
             password: password
         }
+        console.log(reqBody.userName.trim().length);
+        if(reqBody.userName.trim().length <= 0 || reqBody.password.trim().length <= 0){
+            return;
+        }
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
